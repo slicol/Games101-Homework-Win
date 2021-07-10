@@ -1,0 +1,20 @@
+cmake_minimum_required(VERSION 3.10)
+
+project(glew)
+
+set(GLEW_ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR})
+
+set(GLEW_SOURCE_DIR ${GLEW_ROOT_DIR}/src)
+set(GLEW_HEADER_DIR ${GLEW_ROOT_DIR}/include)
+
+include_directories(${GLEW_HEADER_DIR})
+add_library(glew 
+${GLEW_SOURCE_DIR}/glew.c
+${GLEW_SOURCE_DIR}/glewinfo.c
+${GLEW_SOURCE_DIR}/visualinfo.c)
+
+set(GLEW_LIBRARIES glew PARENT_SCOPE)
+set(GLEW_INCLUDE_DIRS ${GLEW_HEADER_DIR} PARENT_SCOPE)
+
+install(TARGETS glew DESTINATION lib)
+install(DIRECTORY ${GLEW_HEADER_DIR}/GL DESTINATION include)

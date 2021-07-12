@@ -208,8 +208,8 @@ void Viewer::drawInfo() {
   }
 
   // render OSD
-  //由于字体无法解析，就不渲染文本了
-  //osd_text->render();
+  //TODO 由于字体无法解析，就不渲染文本了
+  osd_text->render();
 
 }
 

@@ -1,8 +1,9 @@
+#include <string>
 
 namespace CGL
 {
 
-const char osdfont_base64[] =
+const char osdfont_base64_1[] =
 "AAEAAAAQAQAABAAAR0RFRgsxCzIAAAEMAAAAQEdTVULmEd8TAAABTAAAAkhPUy8y"
 "utXqlgAAA5QAAABgY21hcFPnoi8AAAP0AAAIamN2dCBh8hRdAAGy3AAAAJxmcGdt"
 "4RTb8AABs3gAAAuXZ2FzcAAAABAAAbLUAAAACGdseWY/NAUOAAAMYAABZrxoZWFk"
@@ -935,7 +936,9 @@ const char osdfont_base64[] =
 "A0wBAEVEQkE/Pjs5MS4dGgwKCQcAPAE8CgYUKwEyNic0LgIjITUhMh4CFRQGBxYW"
 "FRQOAiMjIgYXFB4CFwcuAyc0PgIzMzI+AjU0LgIjIzUTNzMVByMnNTMCLImFASFA"
 "XDz+1AEsW591RGhbZ3JEdqBbME5IASEyNxdLLl1LMAEwV3tLKTddQiYpTGxDjaWX"
-"oP5y+50CaVVLITgoF5kpUHNJS3YjH3lZTnhSKz4zKD0sHwp8FDtQZDxDYD4eGCw+"
+"oP5y+50CaVVLITgoF5kpUHNJS3YjH3lZTnhSKz4zKD0sHwp8FDtQZDxDYD4eGCw+";
+
+const char osdfont_base64_2[] =
 "Jis/KBSXAx2YEvj1FQAAAAADAGP/7ARaBcQAHQAuAD8AN0A0BgECBwEEBQIEYQAD"
 "AwFbAAEBHUsABQUAWwAAAB4ATDAvHx45Ny8/MD8oJh4uHy4tJggGFisBDgUjIi4E"
 "JzU+BTMyHgQXBSE1LgUjIg4EBwUhFR4FMzI+BDcEWgEZNFFwkVpakXBSNRoBARk1"
@@ -1958,7 +1961,9 @@ const char osdfont_base64[] =
 "Ad/+IQHflwHEmf7VAAEACQAABMoFsAAUADZAMxIBAAcBSgUBAwYBAgcDAmEABwAA"
 "AQcAYQgBBAQWSwkBAQEXAUwUExEREREREREREAoGHSsBIxEjESM1MzUzFSEVIREz"
 "ATMBASMCIau5tLS5ARD+8JwBu9T+EQIY4wKT/W0EaZewsJf+wQKG/T/9EQAAAf/z"
-"AAAEfgYAABQAN0A0Eg4BAwAGAUoEAQIFAQEGAgFhAAMDAFkHAQAAF0sABgYYSwcB"
+"AAAEfgYAABQAN0A0Eg4BAwAGAUoEAQIFAQEGAgFhAAMDAFkHAQAAF0sABgYYSwcB";
+
+const char osdfont_base64_3[] =
 "AAAXAEwSExEREREREggGHCsBBxEjESM1MzUzFTMVIxE3ATMBASMCBoi60dG68vJ5"
 "AWPh/koB+esB+YP+igTBl6iol/2TggFk/j39if//AKL+igTjBz4CJgDZAAAAJwCe"
 "//kBjAEHAA4CYP/aABKxAQG4AYywMyuxAgG4/9qwMyv//wCl/ooE4AXzAiYA7AAA"
@@ -2393,10 +2398,17 @@ const char osdfont_base64[] =
 "CIAAAQRAiGNUWLEDAERZWVlZQApOADwIKAgWBwQMKrgB/4WwBI2xAgBEsQVkRAAA";
 
 
+std::string osdfont_base64;
 
 const char* get_osdfont_base64()
 {
-	return osdfont_base64;
+	if (osdfont_base64.size() == 0)
+	{
+		osdfont_base64.append(osdfont_base64_1);
+		osdfont_base64.append(osdfont_base64_2);
+		osdfont_base64.append(osdfont_base64_3);
+	}
+	return osdfont_base64.c_str();
 }
 
 }
